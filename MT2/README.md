@@ -1,1 +1,1 @@
-[Условие: вариант 4](https://github.com/KanopusSTR/ITMO-TranslationMethods/blob/main/MT2/02-recursive-parsing.pdf)
+[Условие: вариант 4](02-recursive-parsing.pdf)
