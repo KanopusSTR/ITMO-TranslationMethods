@@ -1,0 +1,32 @@
+<public static Integer gcd(Integer a, Integer b) {
+    if (b==0) return a;
+    return gcd(b,a%b);
+}
+>
+
+s() [Integer ans]:
+    b() sprime(t1.b) {ans = t2.b;}
+sprime(Integer value) [Integer ans]:
+    PLUS b() {ans = value + t2.b;} sprime(ans) {ans = t3.b;}
+    | MINUS b() {ans = value - t2.b;} sprime(ans) {ans = t3.b;}
+    | EPS
+b() [Integer ans]:
+    d() bprime(t1.b) {ans = t2.b;}
+bprime(Integer value) [Integer ans]:
+    MULT d() {ans = value * t2.b;} bprime(ans) {ans = t3.b;}
+    | DIV d() {ans = value / t2.b;} bprime(ans) {ans = t3.b;}
+    | EPS
+d() [Integer ans]:
+     GCD LPAREN s() COMMA s() RPAREN {ans = gcd(t3.b, t5.b);} | LPAREN s() RPAREN {ans = t2.b;} | NUMBER {ans = parseInt(t1.b);}
+
+NUMBER  : "[0-9]+"
+EPS     : "EPS"
+GCD     : "gcd"
+COMMA   : ","
+LPAREN  : "\\("
+RPAREN  : "\\)"
+PLUS    : "\\+"
+MINUS   : "\\-"
+MULT    : "\\*"
+DIV     : "\\/"
+WS      : "[ \t\n\r]+" -> skip

@@ -1,0 +1,14 @@
+T__0=1
+T__1=2
+OR=3
+NTNAME=4
+TNAME=5
+REG=6
+CODE=7
+INHERITED=8
+SYNTHESIZED=9
+IMPORT=10
+WS=11
+':'=1
+' -> skip'=2
+'|'=3

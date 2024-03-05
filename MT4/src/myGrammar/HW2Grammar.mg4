@@ -1,0 +1,34 @@
+s () []:
+    i() sprime()
+sprime() []:
+    IF s() ELSE s() | EPS
+i() []:
+    a() iprime()
+iprime() []:
+    OR i() | EPS
+a() []:
+    b() aprime()
+aprime() []:
+    XOR a() | EPS
+b() []:
+    c() bprime()
+bprime() []:
+    AND b() | EPS
+c() []:
+    VAR cprime() | LPAREN s() RPAREN | NOT c()
+cprime() []:
+    IN VAR | NOTIN VAR | EPS
+
+EPS     : "EPS"
+IF      : "if"
+ELSE    : "else"
+XOR     : "xor"
+OR      : "or"
+AND     : "and"
+LPAREN  : "\\("
+RPAREN  : "\\)"
+NOT     : "not"
+VAR     : "[a-z]+"
+NOTIN   : "not in"
+IN      : "in"
+WS      : "[ \t\n\r]+" -> skip

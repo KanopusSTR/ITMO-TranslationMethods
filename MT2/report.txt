@@ -1,0 +1,21 @@
+Грамматика:
+S -> IS'
+S' -> if S else S | ε
+I -> AI'
+I' -> or I | ε
+A -> BA'
+A' -> xor A | ε
+B -> CB'
+B' -> and B | ε
+C -> aC' | (S) | not C
+C' -> in a | not in a | ε
+
+_  FIRST 			FOLLOW
+S  not,a,(  		),$
+S' or,ε    		    ),$
+A  a,(,not  		or,),$
+A' xor,ε    		or,),$
+B  a,(,not  		or,xor,),$
+B' and,ε    		or,xor,),$
+C  a,(,not  		or,xor,and,),$
+C' in,not in,ε      or,xor,and,),$
